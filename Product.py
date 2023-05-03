@@ -29,6 +29,7 @@ class Purchase(Product):
             
         self.reduce_stock(qty_purchased)
         
-        print(f"Bill:\nProduct ID: {self.product_id}\nPrice per unit: {self.price_per_unit}\nQuantity purchased: {qty_purchased}\nDiscount: {discount}%\nTotal cost: {total_cost}")
+        print("Bill:\n")
+        print(f"Product ID: {self.product_id}\nPrice per unit: {self.price_per_unit}\nQuantity purchased: {qty_purchased}\nDiscount: {discount}%\nTotal cost: {total_cost}")
 p1 = Purchase("P1", 10, 20)
 p1.generate_bill("P1", 5, 10)
