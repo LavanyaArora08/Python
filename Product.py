@@ -16,11 +16,12 @@ class Purchase(Product):
         
     def generate_bill(self, pid, qty_purchased, discount=0):
         if self.product_id != pid:
-            print(f"Error: Product with ID {pid} not found.")
+            print("Product Not Found!!")
             return
         
         if not self.is_available(qty_purchased):
-            print(f"Error: Not enough stock. Available stock: {self.stock_qty}")
+            print("Not enough stock")
+            print(f"Available stock: {self.stock_qty}")
             return
         
         total_cost = qty_purchased * self.price_per_unit
@@ -29,7 +30,10 @@ class Purchase(Product):
             
         self.reduce_stock(qty_purchased)
         
-        print("Bill:\n")
-        print(f"Product ID: {self.product_id}\nPrice per unit: {self.price_per_unit}\nQuantity purchased: {qty_purchased}\nDiscount: {discount}%\nTotal cost: {total_cost}")
+        print("Bill:")
+        print(f"Product ID: {self.product_id}\nPrice per unit: {self.price_per_unit}\nQuantity purchased: {qty_purchased}\nDiscount: {discount}%\nTotal cost: {total_cost}\n")
 p1 = Purchase("P1", 10, 20)
 p1.generate_bill("P1", 5, 10)
+p2 = Purchase("P2", 20, 10)
+p2.generate_bill("P2", 5, 10)
+p2.generate_bill("P1", 5, 10)
